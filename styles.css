@@ -1,0 +1,371 @@
+:root {
+  /* Палітра «Енергія та дія» */
+  --bg: #FFFFFF;           /* Білий: основний фон, контраст для контенту */
+  --fg: #36454F;           /* Темно-сірий: основний текст, хедер/футер */
+  --muted: #36454F;        /* Темно-сірий: другорядний текст (використовувати з меншою непрозорістю) */
+  --accent: #FF6B6B;       /* М'який червоний: CTA-кнопки та акцентні елементи */
+  --highlight: #FFD700;    /* М'який жовтий: виділення важливого, іконки/індикатори */
+  --neutral: #FFD7001A;    /* Світло-жовтий (низька непрозорість): нейтральні/фон для індикаторів */
+  --card-bg: #FFFFFF;      /* Білий: фон карток/панелей */
+  --border: #36454F33;     /* Темно-сірий з прозорістю: делікатні бордери */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, system-ui, -apple-system, Segoe UI, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #FF0000;
+  color: #fff;
+  border-bottom: 1px solid var(--border);
+  z-index: 20;
+}
+.header-left { font-size: 1rem; color: #fff; }
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.header-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+}
+.header-nav a:hover { background: rgba(255,255,255,0.18); }
+.header-nav a:active { transform: scale(0.98); }
+.header-nav a:focus-visible { outline: 2px solid var(--highlight); outline-offset: 2px; }
+
+/* Make button in nav visually identical to links */
+.header-nav .link-like {
+  color: #fff;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 10px;
+  background: #FF0000;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  flex: 0 0 auto;
+  transition: background 150ms ease, transform 120ms ease, box-shadow 120ms ease;
+}
+.header-nav .link-like:hover { background: #FF0000; filter: brightness(1.05); }
+.header-nav .link-like:active { transform: scale(0.98); }
+.header-nav .link-like:focus-visible { outline: 2px solid var(--highlight); outline-offset: 2px; }
+.header-nav .link-like:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; filter: none; }
+
+.nav-toggle {
+  display: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 10px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+.nav-toggle:hover { filter: brightness(1.1); }
+.header-right { display: flex; gap: 1rem; font-size: 0.95rem; color: #fff; }
+.header-right:empty { display: none; }
+.header-right .goal { color: var(--highlight); }
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  border-bottom: 1px solid var(--border);
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  transition: height 300ms ease;
+}
+.carousel .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+}
+.carousel .slide.active { opacity: 1; }
+.carousel img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.carousel-fallback {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  height: 100%;
+}
+
+.donations-section { padding: 1.5rem; }
+.qr-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 1200px) { .qr-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .qr-grid { grid-template-columns: 1fr; } }
+
+/* Mobile menu behavior */
+@media (max-width: 768px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+  }
+  .nav-toggle { display: inline-block; }
+  .header-nav {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 300ms ease;
+    will-change: max-height;
+  }
+  .header-nav a { display: block; }
+  .header-nav .link-like { text-align: left; }
+  .donation-btn { text-align: left; }
+  #paypal-btn {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+  #paysend-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.qr-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.qr-card h3 {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.qr-media {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background: var(--neutral);
+}
+.qr-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.qr-media .qr-action-btn,
+.qr-media .qr-link-btn {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #FF0000;
+  color: #FFFFFF;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease, box-shadow 120ms ease;
+}
+.qr-media .qr-action-btn:hover,
+.qr-media .qr-link-btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.qr-media .qr-action-btn:active,
+.qr-media .qr-link-btn:active {
+  transform: scale(0.98);
+}
+/* Кнопки завжди дорівнюють ширині зображення (контейнера qr-media) */
+@media (max-width: 640px) {
+  .qr-media .qr-action-btn,
+  .qr-media .qr-link-btn {
+    width: 100%;
+    max-width: none;
+  }
+}
+.qr-media.missing { color: var(--muted); min-height: 180px; }
+.qr-media.missing::after { content: "Завантажте відповідний QR у папку 'QR'"; padding: 1rem; }
+
+.copy-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem 1rem;
+}
+.copy-text {
+  flex: 1;
+  background: var(--neutral);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem;
+  overflow-x: auto;
+}
+.copy-btn {
+  background: #FF0000;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.copy-btn:hover { filter: brightness(1.1); }
+.mono-link { color: var(--fg); text-decoration: none; }
+.mono-link:hover { text-decoration: underline; }
+
+.paypal-section { padding: 0 1.5rem 1.5rem; color: var(--muted); }
+
+.appeal-section { padding: 1.5rem; }
+.appeal-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.6;
+}
+.appeal-content p { margin: 0.25rem 0; }
+
+.mono-widget { padding: 1rem 1.5rem; }
+.mono-widget-fallback {
+  margin-top: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+.mw-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.mw-link { color: var(--fg); text-decoration: none; }
+.mw-link:hover { text-decoration: underline; }
+.mw-stats { display: flex; gap: 1rem; margin-bottom: 0.5rem; }
+.mw-progress { display: flex; align-items: center; gap: 0.5rem; }
+.mw-bar { flex: 1; height: 10px; background: var(--neutral); border-radius: 8px; overflow: hidden; }
+.mw-fill { height: 100%; background: var(--accent); }
+.mw-percent { min-width: 40px; text-align: right; }
+
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fg);
+  color: #fff;
+}
+.socials { display: flex; gap: 1rem; }
+.social { color: #FFFFFFCC; }
+.social:hover { color: var(--highlight); }
+
+.toast {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background: #ffffff;
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 200ms ease, transform 200ms ease;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+
+.copy-popover {
+  position: absolute;
+  z-index: 1000;
+  background: #ffffff;
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  opacity: 0;
+  transition: opacity 300ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
+.copy-popover.show { opacity: 1; }
+.donation-inline {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  margin-top: 1rem;
+}
+.donation-btn {
+  flex: 1 1 240px;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #FF0000;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease, box-shadow 120ms ease;
+}
+.donation-btn:hover { filter: brightness(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.donation-btn:active { transform: scale(0.98); }
+.donation-btn:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; filter: none; }
+@media (max-width: 640px) {
+  .donation-inline { flex-wrap: wrap; }
+  .donation-btn { flex: 1 1 100%; }
+}
+@media (max-width: 767.98px) {
+  .carousel { height: auto; display: flex; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .carousel .slide { position: relative; flex: 0 0 100%; scroll-snap-align: center; display: grid; place-items: center; opacity: 1; }
+  .carousel img { width: 100%; height: auto; object-fit: contain; object-position: center; margin: 0 auto; }
+}
+@media (min-width: 768px) {
+  .carousel { height: auto; }
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+.carousel-indicators .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+}
+.carousel-indicators .dot.active { background: #fff; }

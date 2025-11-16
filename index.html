@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Ліки Життя — допомога для Корчевого Олександра. Пожертви, контакти та актуальний прогрес збору." />
+    <meta name="theme-color" content="#4b2ca0" />
+    <title>Ліки Життя — Допомога для Корчевого Олександра</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ліки Життя — Допомога для Корчевого Олександра" />
+    <meta property="og:description" content="Підтримайте лікування. Доступні BTC/ETH/USDT, банківська карта та Monobank." />
+    <meta property="og:image" content="QR/MonoBank.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ліки Життя — Допомога для Корчевого Олександра" />
+    <meta name="twitter:description" content="Підтримайте лікування. Доступні BTC/ETH/USDT, банківська карта та Monobank." />
+    <meta name="twitter:image" content="QR/MonoBank.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-left">
+        <strong>Корчевой Олександр</strong>
+      </div>
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" type="button">Меню</button>
+      <nav id="main-nav" class="header-nav">
+        <a href="#paypal">PayPal</a>
+        <button class="donation-btn link-like" id="paysend-nav-btn" type="button" data-copy="+380633949482" data-href="https://paysend.com/" data-delay="2000" aria-label="Копіювати Paysend номер і відкрити сайт">Paysend</button>
+        <a href="#btc">BTC</a>
+        <a href="#eth">ETH</a>
+        <a href="#usdt">USDT</a>
+        <a href="#card">Visa/MasterCard</a>
+        <a href="https://send.monobank.ua/jar/3snHpRyG1Y" target="_blank" rel="noopener">Банка Монобанк</a>
+      </nav>
+      <div class="header-right"></div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero-section">
+        <div id="hero-carousel" class="carousel">
+          <div class="carousel-fallback">Завантажте зображення у папку "hero-images"</div>
+        </div>
+      </section>
+
+      
+
+      <section id="donations" class="donations-section">
+        <div class="qr-grid">
+          <div class="qr-card" id="btc" data-copy="137mt7vbXyr5UX6YXZxK1UcUSX3nSXiCzx">
+            <h3>BTC</h3>
+            <div class="qr-media">
+              <img src="QR/BTC.png" alt="BTC QR" loading="lazy" onerror="this.closest('.qr-media').classList.add('missing')" />
+              <button class="qr-action-btn" type="button" data-copy="137mt7vbXyr5UX6YXZxK1UcUSX3nSXiCzx" aria-label="Копіювати BTC адресу">Копіювати BTC</button>
+            </div>
+          </div>
+
+          <div class="qr-card" id="eth" data-copy="0x1fc01452587d39b1a1d0d77083ef6b7af4c692b7">
+            <h3>ETH</h3>
+            <div class="qr-media">
+              <img src="QR/ETH.png" alt="ETH QR" loading="lazy" onerror="this.closest('.qr-media').classList.add('missing')" />
+              <button class="qr-action-btn" type="button" data-copy="0x1fc01452587d39b1a1d0d77083ef6b7af4c692b7" aria-label="Копіювати ETH адресу">Копіювати ETH</button>
+            </div>
+          </div>
+
+          <div class="qr-card" id="usdt" data-copy="TNZu6XpK7gzqGxDS7JMPUTmNZYgqwpU8Bu">
+            <h3>USDT</h3>
+            <div class="qr-media">
+              <img src="QR/USDT.png" alt="USDT QR" loading="lazy" onerror="this.closest('.qr-media').classList.add('missing')" />
+              <button class="qr-action-btn" type="button" data-copy="TNZu6XpK7gzqGxDS7JMPUTmNZYgqwpU8Bu" aria-label="Копіювати USDT адресу">Копіювати USDT</button>
+            </div>
+          </div>
+
+          <div class="qr-card" id="monobank">
+            <h3>MonoBanka</h3>
+            <div class="qr-media">
+              <img src="QR/MonoBank.png" alt="Monobank QR" loading="lazy" onerror="this.closest('.qr-media').classList.add('missing')" />
+              <button class="qr-link-btn" type="button" data-href="https://send.monobank.ua/jar/3snHpRyG1Y" aria-label="Відкрити банку Monobank">Відкрити банку</button>
+            </div>
+          </div>
+        </div>
+        <div class="donation-inline">
+          <button class="donation-btn" id="paypal-btn" type="button" data-copy="aleksandr.korchevoj@gmail.com" aria-label="Копіювати PayPal Email">PayPal</button>
+          <button class="donation-btn" id="paysend-btn" type="button" data-copy="+380633949482" data-href="https://paysend.com/" data-delay="2000" aria-label="Копіювати Paysend номер і відкрити сайт">Paysend</button>
+        </div>
+      </section>
+
+      <section id="paypal" class="paypal-section">
+        <p class="note">Додайте посилання на PayPal у хедері або тут.</p>
+      </section>
+
+      <section id="appeal" class="appeal-section">
+        <div class="appeal-content">
+          <p>💔 ДРУЗІ ПРОШУ ДОПОМОГИ 🙏🏻</p>
+          <p>В мене лікарі, діагностували жахливу хворобу - МЕЛАНОМА (рак шкіри)!</p>
+          <p>Це най агресивніший вид раку, який потребує термінового та дороговартісного лікування!</p>
+          <p>Після низки обстежень та проведеної операції лікарі призначили тривалий курс імунотерапії препаратом КІТРУДА (ПЕМБРОЛІЗУМАБ), який має дати шанс на одужання.</p>
+          <p>В мене була можливість отримати лікування у Молдові, де на мене чекала експериментальна вакцина та безкоштовна програма лікування.🙏🏻</p>
+          <p>Але, нажаль, через формальності бюрократичної системи,  ще і досі не можемо отримати дозвіл на перетин кордону.😔</p>
+          <p>Через це Я втратив шанс отримати необхідне лікування!😥</p>
+          <p>І тепер змушений продовжувати боротьбу в Україні - повністю за власний кошт.</p>
+          <p>Один курс імунотерапії коштує 80000 гривень, і таких курсів потрібно 16.</p>
+          <p>⏳Часу обмаль.Хвороба не чекає, і лікування потрібно розпочати якнайшвидше!</p>
+          <p>Ми всі зараз живемо у нелегкий для нас час...😟</p>
+          <p>АЛЕ ⚡1280000грн.⚡ ДЛЯ НАШОЇ СІМ'Ї НЕ ПІДЙОМНА СУМА</p>
+          <p>❗Я ПРОШУ ЗВЕРНУТИ УВАГУ!</p>
+          <p>❗НЕ ПРОЙТИ ПОВЗ!</p>
+          <p>❗ПЕРЕПОСТІТЬ, ПОШИРТЕ!</p>
+          <p>КОЖНА ГРИВНЯ - ДЛЯ МЕНЕ ЦЕ КРОК ДО ЖИТТЯ !<br/>А ВАШ РЕПОСТ МОЖЕ ЗНАЙТИ ТОГО, ХТО ЗМОЖЕ МЕНІ ДОПОМОГТИ!🥹</p>
+          <p>📌КОШТИ НЕОБХІДНІ НА ЛІКУВАННЯ ТА ПРОМІЖНУ ДІАГНОСТИКУ.</p>
+          <p>❤️ ДЯКУЮ КОЖНОМУ ЗА ПІДТРИМКУ, РЕПОСТ І ВІРУ!</p>
+          <p id="card">💳 КАРТА ДЛЯ ДОПОМОГИ:<br/>4874 1000 2074 0265<br/>Корчевой Олександр Олександрович<br/>IBAN UA963220010000026209370005906<br/>ІПН/ЄДРПОУ 3213001492</p>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="socials">
+          <a class="social" id="facebook-link" href="https://www.facebook.com/aleksandr.korchevoj" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+              <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.8 3.7-3.8 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12h2.9l-.5 2.9h-2.4v7A10 10 0 0 0 22 12Z"></path>
+            </svg>
+          </a>
+          <a class="social" id="instagram-link" href="https://www.instagram.com/aleksandr.korchevoj/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm6-1.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"></path>
+            </svg>
+          </a>
+        </div>
+      </footer>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+
+    <script>
+      window.__HERO_IMAGES = [
+        'hero-images/1.png',
+        'hero-images/2.png',
+        'hero-images/3.png',
+        'hero-images/4.png',
+        'hero-images/5.png',
+        'hero-images/6.png'
+      ];
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
