@@ -1,6 +1,0 @@
-{"level":"info","message":{"event":"server_started","port":3001}}
-{"level":"error","message":{"error":"connect ECONNREFUSED ::1:465","event":"submit_error","ip":"::1"}}
-{"level":"error","message":{"error":"connect ECONNREFUSED ::1:465","event":"submit_error","ip":"::1"}}
-{"level":"error","message":{"error":"connect ECONNREFUSED ::1:465","event":"submit_error","ip":"::1"}}
-{"level":"error","message":{"error":"connect ECONNREFUSED ::1:465","event":"submit_error","ip":"::1"}}
-{"level":"info","message":{"event":"server_started","port":3001}}
